@@ -1,0 +1,9 @@
+# Simple-Lottery-Using-smart-contracts
+Protocol
+1. The lottery is started by the contractor owner who cannot participate in the lottery and is a honest user.
+2. All three users who want to participate in the lottery must register first. The user needs to deposit 30 ether to participate in the lottery where he will receive 20 ether if he is the winner and loses 10 ether otherwise. If the user is not following the protocol or tries to cheat, he loses 20 ether.
+3. After registering the user is supposed to bid on a value from 0, 1 or 2 and send a hash(keccak256) of a string x, where x = [0,1,2][random 10 digit number]. The length of string x is 11 and the first character of the string should be a value in 0,1 or 2. This is done to ensure that the other players do not learn of the value that is proposed by the user.
+4. After all three players place a bid, the owner will start opening bids, which means he will give all participants 5 minutes to reveal the value and the random 10 digit number. If a players fails to deliver this in 5 minutes, he is found violating the protocol and 20 ether from his wallet are distributed to other participants and the lottery is closed after returning all the amount that the contract holds to valid users.
+5. If a user tries to cheat and sends in a wrong {value,10 digit number pair}, then the user is penalized and 20 ether from his balance are distributed to other participants.
+6. If all the users have provided their input value within the time limit, then the protocol find the winner by (i1 + i2 + i3)%3 = [0,1,2], where i is the input provided by each participant. The winner is the user who registered on that index.
+7. Once the winner is declared, he gets rewarded by 20 ether and the balances of the rest of the participants is updated accordingly.
